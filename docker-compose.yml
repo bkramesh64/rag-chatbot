@@ -1,0 +1,18 @@
+
+
+services:
+  ragapp:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: emission-rag-app
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_URL=http://host.docker.internal:11434  # 👈 talks to host Ollama
+      - CACHE_DIR=/app/.cache
+      - MODEL_NAME=llama3.2:1b
+    volumes:
+      - ./.cache:/app/.cache
+    restart: unless-stopped

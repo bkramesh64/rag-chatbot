@@ -8,3 +8,4 @@ qdrant-client>=0.10.2
 rich>=13.3.5
 transformers>=4.21.0
 accelerate>=0.12.0
+
